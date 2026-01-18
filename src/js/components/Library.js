@@ -13,6 +13,7 @@ export default class Library {
   getProjects = () => [...this.#projects];
 
   getProject = (id) => this.#projects.find((project) => project.getId() === id);
+
   #createProject(projectData = {}) {
     return new Project(projectData);
   }
@@ -26,27 +27,26 @@ export default class Library {
       throw new Error("Project not found.");
     }
 
-    this.#projects.splice(removeIndex, 1);
+    const removedProject = this.#projects.splice(removeIndex, 1);
+    return removedProject[0];
   }
 
   addProject(data) {
     const project = this.#createProject(data);
     this.#projects.push(project);
     this.#currProject = project;
+    return project;
   }
 
   removeTodo(id, projectId) {
     projectId = projectId || this.#currProject.getId();
-
     const project = this.getProject(projectId);
-
-    project.removeTodo(id);
-    console.log(project.getTodos());
+    return project.removeTodo(id);
   }
 
   addTodo(data, projectId) {
     projectId = projectId || this.#currProject.getId();
     const project = this.getProject(projectId);
-    project.addTodo(data);
+    return project.addTodo(data);
   }
 }

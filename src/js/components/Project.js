@@ -35,10 +35,18 @@ export default class Project {
   addTodo(data) {
     const todo = this.#createTodo(data);
     this.#todos.push(todo);
+    return todo;
   }
 
   removeTodo(id) {
-    this.#todos = this.#todos.filter((todo) => todo.getId() !== id);
+    const removeIndex = this.#todos.findIndex((todo) => todo.id === id);
+
+    if (removeIndex === -1) {
+      throw new Error("Todo not found");
+    }
+
+    const removedTodo = this.#todos.splice(removeIndex, 1);
+    return removedTodo[0];
   }
 
   // GETTERS AND SETTERS
