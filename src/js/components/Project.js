@@ -1,21 +1,48 @@
+import Todo from "./Todo";
+
 export default class Project {
+  #id;
   #title;
   #description;
   #dueDate;
   #priority;
-  #finished;
+  #open;
   #todos = [];
 
-  constructor({ title, description, dueDate, priority, finished, todos }) {
-    this.#title = title;
-    this.#description = description;
-    this.#dueDate = dueDate;
-    this.#priority = priority;
-    this.#finished = finished;
-    this.#todos = todos.map((todo) => this.createTodo(todo));
+  constructor({ title, description, dueDate, priority, open, todos }) {
+    this.#id = crypto.randomUUID();
+    this.#title = title || undefined;
+    this.#description = description || undefined;
+    this.#dueDate = dueDate ? new Date(dueDate) : new Date();
+    this.#priority = Number(priority) || 1;
+    this.#open = Boolean(open) || false;
+    this.#todos = todos || [];
+
+    Object.freeze(this);
+  }
+
+  // todos
+  getTodos = () => [...this.#todos];
+
+  getTodo = (id) => this.#todos.filter((todo) => todo.getId() === id);
+
+  // todo handling
+
+  #createTodo(data) {
+    return new Todo(data);
+  }
+
+  addTodo(data) {
+    const todo = this.#createTodo(data);
+    this.#todos.push(todo);
+  }
+
+  removeTodo(id) {
+    this.#todos = this.#todos.filter((todo) => todo.getId() !== id);
   }
 
   // GETTERS AND SETTERS
+  getId = () => this.#id;
 
   // title
   getTitle = () => this.#title;
@@ -37,11 +64,8 @@ export default class Project {
 
   setPriority = (priority) => (this.#priority = priority);
 
-  // finished
-  getFinished = () => this.#finished;
+  // open
+  getOpen = () => this.#open;
 
-  setFinished = (finished) => (this.#finished = finished);
-
-  // todos
-  getTodos = () => this.#todos;
+  setOpen = (open) => (this.#open = open);
 }

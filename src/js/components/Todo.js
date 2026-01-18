@@ -1,4 +1,5 @@
 export default class Todo {
+  #id;
   #title;
   #description;
   #dueDate;
@@ -7,17 +8,19 @@ export default class Todo {
   #note;
 
   constructor({ title, description, dueDate, priority, finished, note }) {
-    this.#title = title;
-    this.#description = description;
-    this.#dueDate = dueDate;
-    this.#priority = priority;
-    this.#finished = finished;
-    this.#note = note;
+    this.#id = crypto.randomUUID();
+    this.#title = title || undefined;
+    this.#description = description || undefined;
+    this.#dueDate = dueDate ? new Date(dueDate) : new Date();
+    this.#priority = Number(priority) || 1;
+    this.#finished = Boolean(finished) || false;
+    this.#note = note || undefined;
 
     Object.freeze(this);
   }
 
   // GETTERS AND SETTERS
+  getId = () => this.#id;
 
   // title
   getTitle = () => this.#title;
