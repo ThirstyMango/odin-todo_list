@@ -1,0 +1,94 @@
+.nav {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 4rem 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 4rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 1;
+}
+
+.search {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search__svg {
+  width: 2rem;
+  cursor: pointer;
+}
+
+.search__input {
+  background-color: var(--cl-electric-light-blue);
+  border: none;
+  width: clamp(12rem, 100%, 45rem);
+  border-radius: 1.1rem / 1rem;
+  padding: 0.3rem 1rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+}
+
+.profile * {
+  cursor: pointer;
+}
+
+.profile__svg {
+  width: 2rem;
+}
+
+.profile__icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.greet {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.greet__icon {
+  height: 4.5rem;
+  width: 4.5rem;
+  border-radius: 50%;
+}
+
+.greet__sayhi {
+  font-weight: 600;
+  font-size: 0.9rem;
+  position: relative;
+  top: 10px;
+}
+
+.controls {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.controls__btn {
+  font-weight: 600;
+  font-size: 0.9rem;
+  background-color: var(--cl-electric-blue);
+  color: var(--cl-white);
+  padding: 0.4rem 1.5rem;
+  border-radius: 1.3rem / 50%;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  border: 3px solid transparent;
+}
+
+.controls__btn:hover,
+.controls__btn:focus {
+  color: var(--cl-electric-blue);
+  background-color: var(--cl-white);
+  border: 3px solid var(--cl-electric-blue);
+}

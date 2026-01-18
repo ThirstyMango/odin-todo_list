@@ -1,0 +1,19 @@
+/* variables and the general container */
+:root {
+  font-size: 16px;
+  --cl-light-gray: #e0e0e0;
+  --cl-medium-gray: #b0b0b0;
+  --cl-soft-gray: #888888;
+  --cl-white: #ffffff;
+  --cl-electric-blue: #1e90ff;
+  --cl-electric-light-blue: #dee6ee;
+  --cl-electric-orange: #ffbf00;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) 5fr;
+  grid-template-rows: 1fr 4fr;
+  grid-template-areas: "sidebar header" "sidebar article";
+  height: 100vh;
+}
