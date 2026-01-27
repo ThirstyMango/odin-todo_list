@@ -17,3 +17,30 @@
   grid-template-areas: "sidebar header" "sidebar article";
   height: 100vh;
 }
+
+.hidden {
+  display: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a {
+  transition: all 200ms ease-in-out;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-weight: 600;
+  border: 0.2rem solid var(--cl-white);
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+}
+
+input {
+  border: 0.1rem solid var(--cl-electric-blue);
+  border-radius: 0.2rem;
+}

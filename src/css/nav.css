@@ -67,23 +67,11 @@
   top: 10px;
 }
 
-.controls {
+.nav__controls {
   display: flex;
   justify-content: end;
   align-items: center;
   gap: 1rem;
-}
-
-.controls__btn {
-  font-weight: 600;
-  font-size: 0.9rem;
-  background-color: var(--cl-electric-blue);
-  color: var(--cl-white);
-  padding: 0.4rem 1.5rem;
-  border-radius: 1.3rem / 50%;
-  cursor: pointer;
-  transition: all 300ms ease-in-out;
-  border: 3px solid transparent;
 }
 
 .controls__btn:hover,

@@ -5,11 +5,38 @@
   background-color: var(--cl-light-gray);
 }
 
+.btn {
+  font-weight: 600;
+  font-size: 0.9rem;
+  background-color: var(--cl-electric-blue);
+  color: var(--cl-white);
+  padding: 0.4rem 1.5rem;
+  border-radius: 1.3rem / 50%;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  border: 3px solid transparent;
+}
+
+.btn.btn--reverse {
+  background-color: var(--cl-white);
+  color: var(--cl-electric-blue);
+}
+
+.btn.btn--circle-sm {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
   grid-template-rows: 1.5rem;
-  grid-auto-rows: 1fr;
+  grid-auto-rows: min-content;
   gap: 2rem;
 }
 

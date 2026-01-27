@@ -32,110 +32,63 @@
             alt=""
             class="sidebar__header-logo white-filter"
           />
-          <h1 class="sidebar__header-text">Dashboard</h1>
+          <h1 class="sidebar__header-text">TODOctor</h1>
         </a>
 
         <nav class="sidebar__nav">
           <ul class="nav__section">
-            <li class="nav__item">
-              <a class="nav__item-link" href="#">
-                <img
-                  class="nav__item-icon white-filter"
-                  src="./imgs/icons/home.svg"
-                  alt="home-svg"
-                />
-                Home</a
-              >
-            </li>
-
-            <li class="nav__item">
-              <a class="nav__item-link" href="#">
-                <img
-                  class="nav__item-icon white-filter"
-                  src="./imgs/icons/account.svg"
-                  alt="profile-svg"
-                />
-                Profile</a
-              >
-            </li>
-
-            <li class="nav__item">
-              <a class="nav__item-link" href="#">
-                <img
-                  class="nav__item-icon white-filter"
-                  src="./imgs/icons/message.svg"
-                  alt="messages-svg"
-                />
-                Messages</a
-              >
-            </li>
-
-            <li class="nav__item">
-              <a class="nav__item-link" href="#">
-                <img
-                  class="nav__item-icon white-filter"
-                  src="./imgs/icons/history.svg"
-                  alt="history-svg"
-                />
-                History</a
-              >
-            </li>
-
-            <li class="nav__item">
-              <a class="nav__item-link" href="#">
-                <img
-                  class="nav__item-icon white-filter"
-                  src="./imgs/icons/file-tree.svg"
-                  alt="tasks-svg"
-                />
-                Tasks</a
-              >
-            </li>
-
-            <li class="nav__item">
-              <a class="nav__item-link" href="#">
-                <img
-                  class="nav__item-icon white-filter"
-                  src="./imgs/icons/account-group.svg"
-                  alt="communities-svg"
-                />
-                Communities</a
-              >
-            </li>
-          </ul>
-
-          <ul class="nav__section">
-            <li class="nav__item">
-              <a class="nav__item-link" href="#">
-                <img
-                  class="nav__item-icon white-filter"
-                  src="./imgs/icons/cog.svg"
-                  alt="settings-svg"
-                />
-                Settings</a
-              >
-            </li>
-
-            <li class="nav__item">
-              <a class="nav__item-link" href="#">
-                <img
-                  class="nav__item-icon white-filter"
-                  src="./imgs/icons/face-agent.svg"
-                  alt="support-svg"
-                />
-                Support</a
-              >
-            </li>
-
-            <li class="nav__item">
-              <a class="nav__item-link" href="#">
-                <img
-                  class="nav__item-icon white-filter"
-                  src="./imgs/icons/shield-check.svg"
-                  alt="privacy-svg"
-                />
-                Privacy</a
-              >
+            <li class="nav__item projects">
+              <div class="projects__nav">
+                <h3 class="projects__header"><a href="#">All projects</a></h3>
+              </div>
+              <ul class="projects__list"></ul>
+              <div class="projects__footer">
+                <button class="btn btn--reverse" id="btn-add-project">
+                  Add project
+                </button>
+                <form
+                  action="#"
+                  method="get"
+                  class="form hidden"
+                  id="form-add-project"
+                >
+                  <button
+                    type="button"
+                    class="btn btn--reverse btn--circle-sm"
+                    id="btn-close-form"
+                  >
+                    x
+                  </button>
+                  <h3>Add project</h3>
+                  <label for="new-project-title">Title</label>
+                  <input
+                    type="text"
+                    name="title"
+                    id="new-project-title"
+                    required
+                  />
+                  <label for="new-project-description">Description</label>
+                  <textarea
+                    name="description"
+                    id="new-project-description"
+                  ></textarea>
+                  <label for="new-project-duedate">Due</label>
+                  <input
+                    type="datetime-local"
+                    name="duedate"
+                    id="new-project-duedate"
+                  />
+                  <label for="new-project-priority">Priority</label>
+                  <input
+                    type="number"
+                    name="priority"
+                    id="new-project-priority"
+                  />
+                  <button class="btn btn--reverse" id="btn-project-submit">
+                    Submit
+                  </button>
+                </form>
+              </div>
             </li>
           </ul>
         </nav>
@@ -143,16 +96,7 @@
 
       <!-- NAVIGATION -->
       <div class="nav">
-        <search class="nav__search search">
-          <label for="search">
-            <img
-              class="search__svg"
-              src="./imgs/icons/magnify.svg"
-              alt="magnify-svg"
-            />
-          </label>
-          <input class="search__input" type="search" id="search" />
-        </search>
+        <h2>Project name</h2>
 
         <div class="nav__profile profile">
           <img
@@ -170,26 +114,35 @@
           <h3 class="profile__name">George Cooper</h3>
         </div>
 
-        <div class="nav__greet greet">
-          <img class="greet__icon" src="./imgs/user_main.jpg" alt="user-main" />
-          <div>
-            <p class="greet__sayhi">Hi there,</p>
-            <h2 class="greet__username">George Cooper (@georgii8)</h2>
-          </div>
-        </div>
+        <search class="nav__search search">
+          <label for="search">
+            <img
+              class="search__svg"
+              src="./imgs/icons/magnify.svg"
+              alt="magnify-svg"
+            />
+          </label>
+          <input
+            class="search__input"
+            type="search"
+            id="search"
+            placeholder="Search todo"
+          />
+        </search>
 
-        <div class="nav__controls controls">
-          <button type="button" class="controls__btn">New</button
-          ><button type="button" class="controls__btn">Upload</button
-          ><button type="button" class="controls__btn">Share</button>
+        <div class="nav__controls">
+          <button type="button" class="btn">Add todo</button
+          ><button type="button" class="btn">Edit project</button
+          ><button type="button" class="btn">Close project</button>
         </div>
       </div>
 
       <div class="main">
         <section class="grid">
-          <h3 class="grid__header">Your Projects</h3>
+          <!-- TODO - add filtering options -->
+          <h3 class="grid__header">Todos</h3>
           <div class="item">
-            <h3 class="item__header">Recipes</h3>
+            <h3 class="item__header">Todo</h3>
             <p class="item__content">
               First project in The Odin Project curriculum. Built solely in HTML
               to train linking webpages together.
@@ -220,186 +173,13 @@
               </a>
             </div>
           </div>
-
-          <div class="item">
-            <h3 class="item__header">Landing Page</h3>
-            <p class="item__content">
-              First project in the many along the way in The Odin Project. Build
-              with pure HTML, CSS and Love. This project was dedicated to all
-              dogs. Woof woof.
-            </p>
-            <div class="item__icons">
-              <a href="https://github.com/ThirstyMango/odin-lading_page">
-                <img
-                  src="./imgs/icons/github.svg"
-                  alt="github-svg"
-                  class="item__icon"
-                />
-              </a>
-
-              <a href="#">
-                <img
-                  src="./imgs/icons/star-plus-outline.svg"
-                  alt="github-svg"
-                  class="item__icon"
-                />
-              </a>
-
-              <a href="https://thirstymango.github.io/odin-landing_page/">
-                <img
-                  src="./imgs/icons/open-in-new.svg"
-                  alt="open-in-new-svg"
-                  class="item__icon"
-                />
-              </a>
-            </div>
-          </div>
-
-          <div class="item">
-            <h3 class="item__header">Rock Paper Scissors</h3>
-            <p class="item__content">
-              First project that has included a little bit of JavaScript to it.
-              Developed for the real gentlemens that are looking for an activity
-              in their free time.
-            </p>
-            <div class="item__icons">
-              <a
-                href="https://github.com/ThirstyMango/odin-rock_paper_scissors"
-              >
-                <img
-                  src="./imgs/icons/github.svg"
-                  alt="github-svg"
-                  class="item__icon"
-                />
-              </a>
-
-              <a href="#">
-                <img
-                  src="./imgs/icons/star-plus-outline.svg"
-                  alt="github-svg"
-                  class="item__icon"
-                />
-              </a>
-
-              <a
-                href="https://thirstymango.github.io/odin-rock_paper_scissors/"
-              >
-                <img
-                  src="./imgs/icons/open-in-new.svg"
-                  alt="open-in-new-svg"
-                  class="item__icon"
-                />
-              </a>
-            </div>
-          </div>
-
-          <div class="item">
-            <h3 class="item__header">Etch a Sketch</h3>
-            <p class="item__content">
-              Pixelarts were always my favourite! Also implemented fully working
-              state history system and color change option. MVP design pattern
-              code structure.
-            </p>
-            <div class="item__icons">
-              <a href="https://github.com/ThirstyMango/odin-etch_a_sketch">
-                <img
-                  src="./imgs/icons/github.svg"
-                  alt="github-svg"
-                  class="item__icon"
-                />
-              </a>
-
-              <a href="#">
-                <img
-                  src="./imgs/icons/star-plus-outline.svg"
-                  alt="github-svg"
-                  class="item__icon"
-                />
-              </a>
-
-              <a href="https://thirstymango.github.io/odin-etch_a_sketch/">
-                <img
-                  src="./imgs/icons/open-in-new.svg"
-                  alt="open-in-new-svg"
-                  class="item__icon"
-                />
-              </a>
-            </div>
-          </div>
-
-          <div class="item">
-            <h3 class="item__header">Calculator</h3>
-            <p class="item__content">
-              Fully working calculator with the help of HTML, CSS and
-              JavaScript. Never ever have I thought, that a calculator must
-              handle so many edge cases.
-            </p>
-            <div class="item__icons">
-              <a href="https://github.com/ThirstyMango/odin-calculator">
-                <img
-                  src="./imgs/icons/github.svg"
-                  alt="github-svg"
-                  class="item__icon"
-                />
-              </a>
-
-              <a href="#">
-                <img
-                  src="./imgs/icons/star-plus-outline.svg"
-                  alt="github-svg"
-                  class="item__icon"
-                />
-              </a>
-
-              <a href="https://thirstymango.github.io/odin-calculator/">
-                <img
-                  src="./imgs/icons/open-in-new.svg"
-                  alt="open-in-new-svg"
-                  class="item__icon"
-                />
-              </a>
-            </div>
-          </div>
-
-          <div class="item">
-            <h3 class="item__header">Sign-up Form</h3>
-            <p class="item__content">
-              User interface for sign-up form webpage with strong emphasis on
-              accessibility.
-            </p>
-            <div class="item__icons">
-              <a href="https://github.com/ThirstyMango/odin-sign_up_form">
-                <img
-                  src="./imgs/icons/github.svg"
-                  alt="github-svg"
-                  class="item__icon"
-                />
-              </a>
-
-              <a href="#">
-                <img
-                  src="./imgs/icons/star-plus-outline.svg"
-                  alt="github-svg"
-                  class="item__icon"
-                />
-              </a>
-
-              <a href="https://thirstymango.github.io/odin-sign_up_form">
-                <img
-                  src="./imgs/icons/open-in-new.svg"
-                  alt="open-in-new-svg"
-                  class="item__icon"
-                />
-              </a>
-            </div>
-          </div>
         </section>
         <aside class="aside">
           <article class="article">
-            <h3 class="article__header">Announcements</h3>
+            <h3 class="article__header">Recently finished todos</h3>
             <div class="article__content article__content--info">
               <div class="infobox">
-                <h3 class="infobox__header">Site Maintanance</h3>
+                <h3 class="infobox__header">Todo 1</h3>
                 <p class="infobox__content">
                   Our website will be undergoing maintanance on 18/12/2025
                   between 23:00-24:00.
@@ -407,7 +187,7 @@
               </div>
               <hr />
               <div class="infobox">
-                <h3 class="infobox__header">New Feature</h3>
+                <h3 class="infobox__header">Todo 2</h3>
                 <p class="infobox__content">
                   New community group project color labeling is now fully
                   functional.
@@ -415,7 +195,7 @@
               </div>
               <hr />
               <div class="infobox">
-                <h3 class="infobox__header">Updated Privacy Policy</h3>
+                <h3 class="infobox__header">Todo 3</h3>
                 <p class="infobox__content">
                   With regulations of local authorities, we have updated our
                   Privacy policy.
@@ -424,41 +204,8 @@
             </div>
           </article>
           <article class="article">
-            <h3 class="article__header">Recently active</h3>
-            <div class="article__content article__content--user">
-              <div class="user">
-                <img
-                  src="./imgs/user_01.jpg"
-                  alt="user-01"
-                  class="user__icon"
-                />
-
-                <h4 class="user__name">@adam_li:</h4>
-                <p class="user__additional">14/12/2025 18:31</p>
-              </div>
-              <div class="user">
-                <img
-                  src="./imgs/user_02.jpg"
-                  alt="user-02"
-                  class="user__icon"
-                />
-
-                <h4 class="user__name">@omah_sheldon:</h4>
-                <p class="user__additional">13/12/2025 16:03</p>
-              </div>
-              <div class="user">
-                <img src="./imgs/user_3.jpg" alt="user-03" class="user__icon" />
-
-                <h4 class="user__name">@jess_tren:</h4>
-                <p class="user__additional">13/12/2025 16:02</p>
-              </div>
-              <div class="user">
-                <img src="./imgs/user_4.jpg" alt="user-04" class="user__icon" />
-
-                <h4 class="user__name">@albion_brave:</h4>
-                <p class="user__additional">12/12/2025 19:00</p>
-              </div>
-            </div>
+            <h3 class="article__header">Project details</h3>
+            <div class="article__content article__content--user"></div>
           </article>
         </aside>
       </div>
