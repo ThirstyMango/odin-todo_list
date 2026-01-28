@@ -4,16 +4,16 @@ export default class Project {
   #id;
   #title;
   #description;
-  #dueDate;
+  #due;
   #priority;
   #open;
   #todos = [];
 
-  constructor({ title, description, dueDate, priority, open, todos }) {
+  constructor({ title, description, due, priority, open, todos }) {
     this.#id = crypto.randomUUID();
-    this.#title = title || undefined;
-    this.#description = description || undefined;
-    this.#dueDate = dueDate ? new Date(dueDate) : new Date();
+    this.#title = title || "";
+    this.#description = description || "";
+    this.#due = due ? new Date(due) : undefined;
     this.#priority = Number(priority) || 1;
     this.#open = Boolean(open) || false;
     this.#todos = todos || [];
@@ -32,6 +32,15 @@ export default class Project {
     return new Todo(data);
   }
 
+  /**
+   *   @param {Object} data - data
+   *   @param {String} data.title - title
+   *   @param {String} data.description - description
+   *   @param {Date} data.due - due date
+   *   @param {Number} data.priority - priority
+   *   @param {Boolean} data.open - open or closed
+   *   @param {String} data.note - note
+   */
   addTodo(data) {
     const todo = this.#createTodo(data);
     this.#todos.push(todo);
@@ -62,10 +71,10 @@ export default class Project {
 
   setDescription = (description) => (this.#description = description);
 
-  // dueDate
-  getDueDate = () => this.#dueDate;
+  // due
+  getDue = () => this.#due;
 
-  setDueDate = (dueDate) => (this.#dueDate = dueDate);
+  setDue = (due) => (this.#due = due);
 
   // priority
   getPriority = () => this.#priority;

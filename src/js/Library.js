@@ -2,7 +2,6 @@ import Project from "./Project";
 
 export default class Library {
   #projects;
-  #currProject;
 
   constructor(projects = []) {
     this.#projects = projects;
@@ -31,21 +30,28 @@ export default class Library {
     return removedProject[0];
   }
 
+  /**
+   *   @param {Object} data - data
+   *   @param {String} data.title - title
+   *   @param {String} data.description - description
+   *   @param {Date} data.due - due date
+   *   @param {Number} data.priority - priority
+   *   @param {Boolean} data.open - open or closed
+   *   @param {Array} data.todos - assigned todos to the project
+   */
+
   addProject(data) {
     const project = this.#createProject(data);
     this.#projects.push(project);
-    this.#currProject = project;
     return project;
   }
 
   removeTodo(id, projectId) {
-    projectId = projectId || this.#currProject.getId();
     const project = this.getProject(projectId);
     return project.removeTodo(id);
   }
 
   addTodo(data, projectId) {
-    projectId = projectId || this.#currProject.getId();
     const project = this.getProject(projectId);
     return project.addTodo(data);
   }

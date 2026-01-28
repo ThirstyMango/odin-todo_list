@@ -11,5 +11,8 @@ export default class DOM {
     this.btnCloseForm = document.querySelector("#btn-close-form");
 
     this.formAddProject = document.querySelector("#form-add-project");
+
+    this.projectHeader = document.querySelector("#project-name-header");
+    this.projectDetails = document.querySelector("#project-details");
   }
 }

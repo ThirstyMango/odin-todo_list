@@ -2,19 +2,19 @@ export default class Todo {
   #id;
   #title;
   #description;
-  #dueDate;
+  #due;
   #priority;
-  #finished;
+  #open;
   #note;
 
-  constructor({ title, description, dueDate, priority, finished, note }) {
+  constructor({ title, description, due, priority, open, note }) {
     this.#id = crypto.randomUUID();
-    this.#title = title || undefined;
-    this.#description = description || undefined;
-    this.#dueDate = dueDate ? new Date(dueDate) : new Date();
+    this.#title = title || "";
+    this.#description = description || "";
+    this.#due = due ? new Date(due) : new Date();
     this.#priority = Number(priority) || 1;
-    this.#finished = Boolean(finished) || false;
-    this.#note = note || undefined;
+    this.#open = Boolean(open) || false;
+    this.#note = note || "";
 
     Object.freeze(this);
   }
@@ -32,20 +32,20 @@ export default class Todo {
 
   setDescription = (description) => (this.#description = description);
 
-  // dueDate
-  getDueDate = () => this.#dueDate;
+  // due
+  getDue = () => this.#due;
 
-  setDueDate = (dueDate) => (this.#dueDate = dueDate);
+  setDue = (due) => (this.#due = due);
 
   // priority
   getPriority = () => this.#priority;
 
   setPriority = (priority) => (this.#priority = priority);
 
-  // finished
-  getFinished = () => this.#finished;
+  // open
+  getopen = () => this.#open;
 
-  setFinished = (finished) => (this.#finished = finished);
+  setopen = (open) => (this.#open = open);
 
   // note
   getNote = () => this.#note;

@@ -72,11 +72,11 @@
                     name="description"
                     id="new-project-description"
                   ></textarea>
-                  <label for="new-project-duedate">Due</label>
+                  <label for="new-project-due">Due</label>
                   <input
                     type="datetime-local"
-                    name="duedate"
-                    id="new-project-duedate"
+                    name="due"
+                    id="new-project-due"
                   />
                   <label for="new-project-priority">Priority</label>
                   <input
@@ -96,7 +96,7 @@
 
       <!-- NAVIGATION -->
       <div class="nav">
-        <h2>Project name</h2>
+        <h2 id="project-name-header">All projects</h2>
 
         <div class="nav__profile profile">
           <img
@@ -177,7 +177,7 @@
         <aside class="aside">
           <article class="article">
             <h3 class="article__header">Recently finished todos</h3>
-            <div class="article__content article__content--info">
+            <div class="article__content article__content--i nfo">
               <div class="infobox">
                 <h3 class="infobox__header">Todo 1</h3>
                 <p class="infobox__content">
@@ -205,7 +205,10 @@
           </article>
           <article class="article">
             <h3 class="article__header">Project details</h3>
-            <div class="article__content article__content--user"></div>
+            <div
+              class="article__content article__content--user"
+              id="project-details"
+            ></div>
           </article>
         </aside>
       </div>

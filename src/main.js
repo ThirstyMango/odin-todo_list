@@ -40,6 +40,9 @@ new (class Controller {
     this.dom.formAddProject.addEventListener("submit", (e) =>
       this.handleProjectAdd(e),
     );
+    this.dom.projectsList.addEventListener("click", (e) =>
+      this.handleProjectClick(e),
+    );
   }
 
   switchElements(el1, el2) {
@@ -57,20 +60,38 @@ new (class Controller {
       formData.get("priority"),
     ];
 
-    const projectObj = this.library.addProject({
+    this.library.addProject();
+
+    const project = this.library.addProject({
       title,
       description,
       due,
       priority,
     });
 
-    this.view.renderProject(this.dom.projectsList, projectObj);
+    this.view.renderProject(
+      this.dom.projectsList,
+      this.dom.projectHeader,
+      this.dom.projectDetails,
+      project,
+    );
     this.view.clearForm(this.dom.formAddProject);
 
     this.switchElements(this.dom.btnAddProject, this.dom.formAddProject);
   }
 
-  isNewProjectValid(title, description, due, priority) {
-    return true;
+  handleProjectClick(e) {
+    if (!e.target.dataset.obj === "project") return;
+
+    const projectId = e.target.closest("[data-project-id]").dataset.projectId; //.dataset["project-id"];
+    console.log(projectId);
+
+    const project = this.library.getProject(projectId);
+
+    this.view.renderProjectPage(
+      this.dom.projectHeader,
+      this.dom.projectDetails,
+      project,
+    );
   }
 })(new Library(), new View(), new DOM());
