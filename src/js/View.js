@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 export default class View {
   // Renders
   renderTodo(container, todo) {
@@ -34,9 +36,9 @@ export default class View {
     const content = `
         <li class="project" data-project-id="${project.getId()}">
            <p class="project__name" data-obj="project"><a href="#">${project.getTitle()}</a></p>
-           <p class="project__due">${project.getDue() ? "get" + project.getDue() : ""}</p>
         </li>
     `;
+    // <p class="project__due">${project.getDue() ? "get" + project.getDue() : ""}</p>
     this.addContent(container, content);
   }
 
@@ -61,7 +63,7 @@ export default class View {
             <hr />
             <div class="infobox">
                 <h3 class="infobox__header">Due:</h3>
-                <p class="infobox__content">${project.getDue()}</p>
+                <p class="infobox__content">${project.getDue() ? format(project.getDue(), "d MMMM Y HH':'m") : "Not assigned"}</p>
             </div>
             <hr />
              <div class="infobox">
