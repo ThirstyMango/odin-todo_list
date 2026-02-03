@@ -64,15 +64,22 @@
   content: "»";
 }
 
-#form-add-project {
+#form-add-project,
+#form-add-todo {
   position: relative;
 }
 
-#btn-close-form {
+#btn-close-project-form,
+#btn-close-todo-form {
   position: absolute;
   right: 0.4rem;
 }
 
-#btn-project-submit {
+#btn-close-todo-form {
+  top: 4rem;
+}
+
+#btn-project-submit,
+#btn-todo-submit {
   margin-top: 1rem;
 }

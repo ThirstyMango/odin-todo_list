@@ -8,9 +8,15 @@ export default class DOM {
     this.projectsList = document.querySelector(".projects__list");
 
     this.btnAddProject = document.querySelector("#btn-add-project");
-    this.btnCloseForm = document.querySelector("#btn-close-form");
+    this.btnCloseProjectForm = document.querySelector(
+      "#btn-close-project-form",
+    );
+
+    this.btnAddTodo = document.querySelector("#btn-add-todo");
+    this.btnCloseTodoForm = document.querySelector("#btn-close-todo-form");
 
     this.formAddProject = document.querySelector("#form-add-project");
+    this.formAddTodo = document.querySelector("#form-add-todo");
 
     this.projectHeader = document.querySelector("#project-name-header");
     this.projectDetails = document.querySelector("#project-details");

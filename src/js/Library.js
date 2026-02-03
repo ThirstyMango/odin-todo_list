@@ -55,4 +55,18 @@ export default class Library {
     const project = this.getProject(projectId);
     return project.addTodo(data);
   }
+
+  save() {
+    console.log(this.#projects);
+    localStorage.setItem("library", JSON.stringify(this.#projects));
+  }
+
+  fetch() {
+    const cachedLibrary = JSON.parse(localStorage.getItem("library"));
+
+    if (!cachedLibrary) return;
+    console.log(cachedLibrary);
+
+    this.#projects = cachedLibrary;
+  }
 }

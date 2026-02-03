@@ -15,7 +15,7 @@ export default class Project {
     this.#description = description || "";
     this.#due = due ? new Date(due) : undefined;
     this.#priority = Number(priority) || 1;
-    this.#open = Boolean(open) || false;
+    this.#open = Boolean(open) || true;
     this.#todos = todos || [];
 
     Object.freeze(this);

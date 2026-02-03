@@ -15,27 +15,22 @@ new (class Controller {
 
     this.#bindEvents();
 
-    // this.library.addProject({
-    //   title: "Project 1",
-    //   description: "A new project",
-    //   dueDate: "1.1.2021",
-    //   priority: 1,
-    //   open: false,
-    // });
-    // const todo = this.library.addTodo({
-    //   title: "Todo 1",
-    //   description: "Not so important todo",
-    //   dueDate: "1.2.2022",
-    // });
-    // this.view.renderTodo(this.dom.todoList, todo);
+    // If cached
+    this.library.fetch();
   }
 
   #bindEvents() {
     this.dom.btnAddProject.addEventListener("click", () =>
       this.switchElements(this.dom.btnAddProject, this.dom.formAddProject),
     );
-    this.dom.btnCloseForm.addEventListener("click", () =>
+    this.dom.btnCloseProjectForm.addEventListener("click", () =>
       this.switchElements(this.dom.btnAddProject, this.dom.formAddProject),
+    );
+    this.dom.btnAddTodo.addEventListener("click", () =>
+      this.switchElements(this.dom.btnAddTodo, this.dom.formAddTodo),
+    );
+    this.dom.btnCloseTodoForm.addEventListener("click", () =>
+      this.switchElements(this.dom.btnAddTodo, this.dom.formAddTodo),
     );
     this.dom.formAddProject.addEventListener("submit", (e) =>
       this.handleProjectAdd(e),
@@ -61,6 +56,7 @@ new (class Controller {
     ];
 
     this.library.addProject();
+    this.library.save();
 
     const project = this.library.addProject({
       title,
@@ -84,7 +80,6 @@ new (class Controller {
     if (!e.target.dataset.obj === "project") return;
 
     const projectId = e.target.closest("[data-project-id]").dataset.projectId; //.dataset["project-id"];
-    console.log(projectId);
 
     const project = this.library.getProject(projectId);
 

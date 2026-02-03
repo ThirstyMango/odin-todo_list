@@ -50,32 +50,40 @@ export default class View {
 
   renderProjectDetails(container, project) {
     this.clearContent(container);
+    const priorityNames = ["Low", "Medium", "High"];
     const content = `
-           <div class="infobox">
-                <h3 class="infobox__header">Title:</h3>
-                <p class="infobox__content">${project.getTitle()}</p>
+
+            <h3 class="article__header">Project details</h3>
+            <div
+              class="article__content article__content--user"
+            >
+              <div class="infobox">
+                    <h3 class="infobox__header">Title:</h3>
+                    <p class="infobox__content">${project.getTitle()}</p>
+                </div>
+                <hr />
+                <div class="infobox">
+                    <h3 class="infobox__header">Description:</h3>
+                    <p class="infobox__content">${project.getDescription() || "Not assigned"}</p>
+                </div>
+                <hr />
+                <div class="infobox">
+                    <h3 class="infobox__header">Due:</h3>
+                    <p class="infobox__content">${project.getDue() ? format(project.getDue(), "d MMMM Y HH':'m") : "Not assigned"}</p>
+                </div>
+                <hr />
+                <div class="infobox">
+                    <h3 class="infobox__header">Priority:</h3>
+                    <p class="infobox__content">${project.getPriority() ? priorityNames[project.getPriority()] : "Not assigned"}</p>
+                </div>
+                <hr />
+                <div class="infobox">
+                    <h3 class="infobox__header">Open:</h3>
+                    <p class="infobox__content">${project.getOpen() ? "Open" : "Closed"}</p>
+                </div>
+                <hr />
+                <button type="button" class="btn" data-project-id="${project.getId()}">Edit project</button>
             </div>
-            <hr />
-            <div class="infobox">
-                <h3 class="infobox__header">Description:</h3>
-                <p class="infobox__content">${project.getDescription()}</p>
-            </div>
-            <hr />
-            <div class="infobox">
-                <h3 class="infobox__header">Due:</h3>
-                <p class="infobox__content">${project.getDue() ? format(project.getDue(), "d MMMM Y HH':'m") : "Not assigned"}</p>
-            </div>
-            <hr />
-             <div class="infobox">
-                <h3 class="infobox__header">Priority:</h3>
-                <p class="infobox__content">${project.getPriority()}</p>
-            </div>
-            <hr />
-             <div class="infobox">
-                <h3 class="infobox__header">Open:</h3>
-                <p class="infobox__content">${project.getOpen()}</p>
-            </div>
-            <hr />
     `;
     this.addContent(container, content);
   }

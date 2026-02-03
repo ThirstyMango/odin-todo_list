@@ -55,7 +55,7 @@
                   <button
                     type="button"
                     class="btn btn--reverse btn--circle-sm"
-                    id="btn-close-form"
+                    id="btn-close-project-form"
                   >
                     x
                   </button>
@@ -131,8 +131,7 @@
         </search>
 
         <div class="nav__controls">
-          <button type="button" class="btn">Add todo</button
-          ><button type="button" class="btn">Edit project</button
+          <button type="button" class="btn" id="btn-add-todo">Add todo</button
           ><button type="button" class="btn">Close project</button>
         </div>
       </div>
@@ -175,9 +174,36 @@
           </div>
         </section>
         <aside class="aside">
+          <article class="article hidden" id="form-add-todo">
+            <h3 class="article__header">Add todo</h3>
+            <div class="article__content article__content--form">
+              <form action="#" method="get" class="form">
+                <button
+                  type="button"
+                  class="btn btn--circle-sm"
+                  id="btn-close-todo-form"
+                >
+                  x
+                </button>
+                <label for="new-todo-title">Title</label>
+                <input type="text" name="title" id="new-todo-title" required />
+                <label for="new-todo-description">Description</label>
+                <textarea
+                  name="description"
+                  id="new-todo-description"
+                ></textarea>
+                <label for="new-todo-due">Due</label>
+                <input type="datetime-local" name="due" id="new-todo-due" />
+                <label for="new-todo-priority">Priority</label>
+                <input type="number" name="priority" id="new-todo-priority" />
+                <button class="btn" id="btn-todo-submit">Submit</button>
+              </form>
+            </div>
+          </article>
+
           <article class="article">
             <h3 class="article__header">Recently finished todos</h3>
-            <div class="article__content article__content--i nfo">
+            <div class="article__content article__content--info">
               <div class="infobox">
                 <h3 class="infobox__header">Todo 1</h3>
                 <p class="infobox__content">
@@ -203,13 +229,7 @@
               </div>
             </div>
           </article>
-          <article class="article">
-            <h3 class="article__header">Project details</h3>
-            <div
-              class="article__content article__content--user"
-              id="project-details"
-            ></div>
-          </article>
+          <article class="article" id="project-details"></article>
         </aside>
       </div>
     </main>

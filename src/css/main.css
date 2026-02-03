@@ -109,6 +109,10 @@
   padding: 1.5rem;
 }
 
+.article__content--form {
+  padding: 1rem;
+}
+
 .infobox {
   display: flex;
   align-items: center;

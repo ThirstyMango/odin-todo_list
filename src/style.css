@@ -19,7 +19,7 @@
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 a:hover {
@@ -40,7 +40,8 @@ form {
   border-radius: 0.3rem;
 }
 
-input {
+input,
+textarea {
   border: 0.1rem solid var(--cl-electric-blue);
   border-radius: 0.2rem;
 }
