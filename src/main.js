@@ -21,16 +21,24 @@ new (class Controller {
 
   #bindEvents() {
     this.dom.btnAddProject.addEventListener("click", () =>
-      this.switchElements(this.dom.btnAddProject, this.dom.formAddProject),
+      this.view.toggleElements(this.dom.btnAddProject, this.dom.formAddProject),
     );
     this.dom.btnCloseProjectForm.addEventListener("click", () =>
-      this.switchElements(this.dom.btnAddProject, this.dom.formAddProject),
+      this.view.toggleElements(this.dom.btnAddProject, this.dom.formAddProject),
     );
     this.dom.btnAddTodo.addEventListener("click", () =>
-      this.switchElements(this.dom.btnAddTodo, this.dom.formAddTodo),
+      this.view.toggleElements(
+        this.dom.btnAddTodo,
+        this.dom.formAddTodo,
+        this.dom.recentlyFinishedTodos,
+      ),
     );
     this.dom.btnCloseTodoForm.addEventListener("click", () =>
-      this.switchElements(this.dom.btnAddTodo, this.dom.formAddTodo),
+      this.view.toggleElements(
+        this.dom.btnAddTodo,
+        this.dom.formAddTodo,
+        this.dom.recentlyFinishedTodos,
+      ),
     );
     this.dom.formAddProject.addEventListener("submit", (e) =>
       this.handleProjectAdd(e),
@@ -40,8 +48,8 @@ new (class Controller {
     );
   }
 
-  switchElements(el1, el2) {
-    this.view.toggleElements(el1, el2);
+  handleTodoAdd(e) {
+    e.preventDefault();
   }
 
   handleProjectAdd(e) {
@@ -73,7 +81,7 @@ new (class Controller {
     );
     this.view.clearForm(this.dom.formAddProject);
 
-    this.switchElements(this.dom.btnAddProject, this.dom.formAddProject);
+    this.view.toggleElements(this.dom.btnAddProject, this.dom.formAddProject);
   }
 
   handleProjectClick(e) {

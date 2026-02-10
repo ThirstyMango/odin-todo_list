@@ -20,5 +20,9 @@ export default class DOM {
 
     this.projectHeader = document.querySelector("#project-name-header");
     this.projectDetails = document.querySelector("#project-details");
+
+    this.recentlyFinishedTodos = document.querySelector(
+      "#recently-finished-todos",
+    );
   }
 }
