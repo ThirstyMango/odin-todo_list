@@ -41,7 +41,8 @@ form {
 }
 
 input,
-textarea {
+textarea,
+select {
   border: 0.1rem solid var(--cl-electric-blue);
   border-radius: 0.2rem;
 }
